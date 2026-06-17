@@ -1,0 +1,13 @@
+function [ Mach2, P2_P1, T2_T1, ro2_ro1  ] = GetNormalShock(gamma,Mach1)
+% Calcula  as condiçoes atrás de uma onda de choque normal
+% Escoamento compressível
+
+    Mach2 = sqrt((Mach1^2+2/(gamma-1))...
+                    /(2*gamma/(gamma-1)*Mach1^2-1));
+    P2_P1 = 2*gamma/(gamma+1)*Mach1^2 ...
+                   -(gamma-1)/(gamma+1);
+    T2_T1 = P2_P1*((gamma-1)/(gamma+1)...
+                                  +2/((gamma+1)*Mach1^2));
+    ro2_ro1= (gamma+1)*Mach1^2 ...
+                     /(2+(gamma-1)*Mach1^2);
+end
